@@ -1187,29 +1187,90 @@ section { padding: 120px 5%; position: relative; }
   justify-content: center;
 }
 
-/* ===== BOOK NOW CTA (replaces contact form) ===== */
-.book-cta {
+/* ===== INSTAGRAM TEASER (replaces contact form) ===== */
+.ig-teaser {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
   height: 100%;
-  gap: 32px;
+  gap: 28px;
 }
-.book-cta-text {
+.ig-teaser-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  width: max-content;
+}
+.ig-teaser-eyebrow {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.ig-teaser-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--serif);
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height: 1.2;
+  font-size: clamp(24px, 2.6vw, 34px);
   font-weight: 400;
   color: var(--cream);
+  transition: color 0.4s ease;
 }
-.book-cta-text em {
-  font-style: italic;
+.ig-teaser-handle svg { color: var(--rose); flex-shrink: 0; }
+.ig-teaser-head:hover .ig-teaser-handle { color: var(--rose); }
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+.ig-tile {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
   color: var(--rose);
+  background: linear-gradient(135deg, #161616 0%, #1f1b1b 50%, #141414 100%);
+  border: 1px solid var(--line);
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s ease;
 }
-.book-cta-btn {
-  padding: 22px 48px;
-  font-size: 16px;
+.ig-tile svg { position: relative; z-index: 1; opacity: 0.65; transition: opacity 0.5s ease, transform 0.5s ease; }
+.ig-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(244,143,177,0.10) 45%, rgba(255,255,255,0.06) 50%, rgba(244,143,177,0.10) 55%, transparent 100%);
+  transform: skewX(-18deg);
+  animation: ig-shimmer 5.5s ease-in-out infinite;
+}
+.ig-tile:nth-child(2)::before { animation-delay: 0.6s; }
+.ig-tile:nth-child(3)::before { animation-delay: 1.2s; }
+.ig-tile:nth-child(4)::before { animation-delay: 1.8s; }
+.ig-tile:nth-child(5)::before { animation-delay: 2.4s; }
+.ig-tile:nth-child(6)::before { animation-delay: 3.0s; }
+.ig-tile:hover {
+  transform: translateY(-3px);
+  border-color: rgba(244,143,177,0.4);
+}
+.ig-tile:hover svg { opacity: 1; transform: scale(1.1); }
+@keyframes ig-shimmer {
+  0%   { left: -150%; }
+  55%  { left: 150%; }
+  100% { left: 150%; }
+}
+.ig-teaser-btn {
+  align-self: flex-start;
+  padding: 18px 40px;
+  font-size: 15px;
 }
 
 /* ===== FOOTER ===== */
@@ -1689,9 +1750,29 @@ section { padding: 120px 5%; position: relative; }
         </div>
       </div>
 
-      <div class="book-cta reveal">
-        <p class="book-cta-text">Ready to feel <em>confident &amp; refreshed?</em></p>
-        <a href="https://twoprettygirls.myaestheticrecord.com/online-booking" target="_blank" rel="noopener" class="btn btn-primary book-cta-btn">Book Your Appointment <span class="arrow">→</span></a>
+      <div class="ig-teaser reveal">
+        <a href="https://www.instagram.com/twoprettygirls2025" target="_blank" rel="noopener" class="ig-teaser-head">
+          <span class="ig-teaser-eyebrow">Follow our journey</span>
+          <span class="ig-teaser-handle">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/>
+              <circle cx="12" cy="12" r="4.2"/>
+              <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+            @twoprettygirls2025
+          </span>
+        </a>
+
+        <div class="ig-grid">
+          <span class="ig-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="ig-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="ig-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="ig-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="ig-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+          <span class="ig-tile"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" ry="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        </div>
+
+        <a href="https://www.instagram.com/twoprettygirls2025" target="_blank" rel="noopener" class="btn btn-primary ig-teaser-btn">Follow Us on Instagram <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
