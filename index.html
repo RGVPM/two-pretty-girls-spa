@@ -1187,6 +1187,31 @@ section { padding: 120px 5%; position: relative; }
   justify-content: center;
 }
 
+/* ===== BOOK NOW CTA (replaces contact form) ===== */
+.book-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  gap: 32px;
+}
+.book-cta-text {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--cream);
+}
+.book-cta-text em {
+  font-style: italic;
+  color: var(--rose);
+}
+.book-cta-btn {
+  padding: 22px 48px;
+  font-size: 16px;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: #050505;
@@ -1664,39 +1689,10 @@ section { padding: 120px 5%; position: relative; }
         </div>
       </div>
 
-      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-        <div class="form-group">
-          <label for="service">Service of Interest</label>
-          <select id="service" name="service" required>
-            <option value="">Select a service...</option>
-            <option>Neurotoxins (Botox)</option>
-            <option>Dermal Fillers</option>
-            <option>Medical Weight Loss</option>
-            <option>IV Therapy</option>
-            <option>Hormone Optimization</option>
-            <option>Not sure — I'd like a consultation</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message <span style="text-transform: none; opacity: 0.5;">(optional)</span></label>
-          <textarea id="message" name="message" placeholder="Tell us a bit about what you're hoping to achieve..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Request a Consultation <span class="arrow">→</span></button>
-      </form>
+      <div class="book-cta reveal">
+        <p class="book-cta-text">Ready to feel <em>confident &amp; refreshed?</em></p>
+        <a href="https://twoprettygirls.myaestheticrecord.com/online-booking" target="_blank" rel="noopener" class="btn btn-primary book-cta-btn">Book Your Appointment <span class="arrow">→</span></a>
+      </div>
     </div>
   </div>
 </section>
