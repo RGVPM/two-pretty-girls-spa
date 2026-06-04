@@ -803,17 +803,11 @@ section { padding: 120px 5%; position: relative; }
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.8s ease-in-out;
-  animation: carousel-slide 12s ease-in-out infinite;
+  animation: carousel-slide 18s linear infinite;
 }
 @keyframes carousel-slide {
-  0%        { transform: translateX(0%); }
-  28%       { transform: translateX(0%); }
-  33.33%    { transform: translateX(-33.33%); }
-  61.33%    { transform: translateX(-33.33%); }
-  66.66%    { transform: translateX(-66.66%); }
-  94.66%    { transform: translateX(-66.66%); }
-  100%      { transform: translateX(0%); }
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-66.66%); }
 }
 .founders-image-frame::after {
   content: '';
